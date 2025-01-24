@@ -31,7 +31,10 @@ npm run lint
 
 All kind of contribution is highly welcomed.
 
-Donations and financial support for the development process are possible using Bitcoin and Lightning:
+You can contribute on source code by checking [open issues](https://github.com/dezh-tech/mongostr/issues?q=is%3Aissue%20state%3Aopen%20). Please make sure you post a comment on that specific issue and let everyone aware of that you are working on it.
+You can [open an issue](https://github.com/dezh-tech/mongostr/issues/new?template=Blank+issue) to report a bug or suggest a feature as well. 
+
+Also, donations and financial support for the development process is possible using the Bitcoin and the Lightning:
 
 **on-chain**:
 
