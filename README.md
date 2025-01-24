@@ -1,38 +1,34 @@
-# sv
+<p align="center"> 
+    <img alt="mongostr" src="./static/favicon.ico" width="150" height="150" />
+</p>
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+<h1 align="center">
+Mongostr
+</h1>
 
-## Creating a project
+<br/>
 
-If you're seeing this, you've probably already done this step. Congrats!
+The Mongostr is a simple Nostr client that allows you to manage your relays using [NIP-86](https://github.com/nostr-protocol/nips/blob/master/86.md) APIs.
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Development
 
-# create a new project in my-app
-npx sv create my-app
-```
+You can run the project in dev mode using:
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+```sh
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+You can run formatter and linter like:
 
-To create a production version of your app:
-
-```bash
-npm run build
+```sh
+npm run format
+npm run lint
 ```
 
-You can preview the production build with `npm run preview`.
+## Contribution
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+All kind of contribution is highly welcomed.
+
+## License
+
+This software is published under [MIT License](./LICENSE).
