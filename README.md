@@ -1,16 +1,16 @@
 <p align="center"> 
-    <img alt="mongostr" src="./static/favicon.ico" width="150" height="150" />
+    <img alt="mangostr" src="./static/favicon.ico" width="150" height="150" />
 </p>
 
 <h1 align="center">
-Mongostr
+Mangostr
 </h1>
 
 <br/>
 
-The Mongostr is a simple Nostr client that allows you to manage your relays using [NIP-86](https://github.com/nostr-protocol/nips/blob/master/86.md) APIs.
+The Mangostr is a simple Nostr client that allows you to manage your relays using [NIP-86](https://github.com/nostr-protocol/nips/blob/master/86.md) APIs.
 
-Powered by Svelte, Tailwind, Svelte Shadcn, Lucide Svelte and Nostr Tools.
+Powered by Svelte, Tailwind, Svelte Shadcn, Lucide Svelte, and Nostr Tools.
 
 ## Development
 
@@ -31,10 +31,10 @@ npm run lint
 
 All kind of contribution is highly welcomed.
 
-You can contribute on source code by checking [open issues](https://github.com/dezh-tech/mongostr/issues?q=is%3Aissue%20state%3Aopen%20). Please make sure you post a comment on that specific issue and let everyone aware of that you are working on it.
-You can [open an issue](https://github.com/dezh-tech/mongostr/issues/new?template=Blank+issue) to report a bug or suggest a feature as well. 
+You can contribute to source code by checking [open issues](https://github.com/dezh-tech/mongostr/issues?q=is%3Aissue%20state%3Aopen%20). Please make sure you comment on that specific issue and inform everyone that you are working on it.
+You can [open an issue](https://github.com/dezh-tech/mongostr/issues/new?template=Blank+issue) to report a bug or suggest a feature. 
 
-Also, donations and financial support for the development process is possible using the Bitcoin and the Lightning:
+Also, donations and financial support for the development process are possible using Bitcoin and Lightning:
 
 **on-chain**:
 
