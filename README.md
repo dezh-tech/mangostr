@@ -10,6 +10,8 @@ Mongostr
 
 The Mongostr is a simple Nostr client that allows you to manage your relays using [NIP-86](https://github.com/nostr-protocol/nips/blob/master/86.md) APIs.
 
+Powered by Svelte, Tailwind, Svelte Shadcn, Lucide Svelte and Nostr Tools.
+
 ## Development
 
 You can run the project in dev mode using:
@@ -28,6 +30,20 @@ npm run lint
 ## Contribution
 
 All kind of contribution is highly welcomed.
+
+Donations and financial support for the development process are possible using Bitcoin and Lightning:
+
+**on-chain**:
+
+```
+bc1qa0z44j7m0v0rx85q0cag5juhxdshnmnrxnlr32
+```
+
+**lightning**: 
+
+```
+dezh@coinos.io
+```
 
 ## License
 
