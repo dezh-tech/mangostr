@@ -18,6 +18,27 @@
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import * as Table from '$lib/components/ui/table/index.js';
 	import LightSwitch from '$lib/components/ui/light-switch/light-switch.svelte';
+
+	import { getCurrentUser, setCurrentUser } from '$lib/stores/currentUser.svelte';
+	import { onMount } from 'svelte';
+	import ndk from '$lib/stores/ndk.svelte';
+	import { NDKNip07Signer } from '@nostr-dev-kit/ndk';
+
+	const currentUser = $derived(getCurrentUser());
+
+	function login() {
+		if (window.nostr) {
+			ndk.signer = new NDKNip07Signer();
+			ndk.signer.user().then((user) => {
+				console.log('user', user);
+				setCurrentUser(user);
+			});
+		}
+	}
+
+	onMount(() => {
+		if (window.nostr) login();
+	});
 </script>
 
 <div class="flex min-h-screen w-full flex-col">
@@ -70,12 +91,24 @@
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger asChild let:builder>
 					<Button builders={[builder]} variant="secondary" size="icon" class="rounded-full">
-						<CircleUser class="h-5 w-5" />
+						<!-- {#if currentUser}
+							<img
+								src={currentUser.profile?.image}
+								alt="user profile"
+								class="mr-4 h-32 w-32 rounded-full"
+							/>
+						{:else}
+							<CircleUser class="h-5 w-5" />
+						{/if} -->
 						<span class="sr-only">Toggle user menu</span>
 					</Button>
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content align="end">
-					<DropdownMenu.Label>My Account</DropdownMenu.Label>
+					{#if currentUser}
+						<DropdownMenu.Label>{currentUser.user?.npub}</DropdownMenu.Label>
+					{:else}
+						<DropdownMenu.Label>My Account</DropdownMenu.Label>
+					{/if}
 					<DropdownMenu.Item>Logout</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>

@@ -54,3 +54,14 @@ export const flyAndScale = (
 		easing: cubicOut
 	};
 };
+
+// export function shortenString(str: string | undefined) {
+// 	if (str == undefined) {
+// 		return ""
+// 	}
+
+// 	if (str.length <= 10) return str;
+// 	const start = str.slice(0, 6);
+// 	const end = str.slice(-8);
+// 	return `${start}...${end}`;
+// }

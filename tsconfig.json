@@ -1,16 +1,16 @@
 {
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext", // or "es2015"
-        "moduleResolution": "bundler",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "baseUrl": ".",
-        "paths": {
-            "$lib/*": ["src/lib/*"]
-        }
-    },
-    "include": ["src/**/*", ".svelte-kit/**/*"]
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext", // or "es2015"
+		"moduleResolution": "bundler",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"paths": {
+			"$lib/*": ["src/lib/*"]
+		}
+	},
+	"include": ["src/**/*", ".svelte-kit/**/*"]
 }
