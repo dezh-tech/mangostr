@@ -30,5 +30,8 @@ export default ts.config(
 				parser: ts.parser
 			}
 		}
+	},
+	{
+		ignores: ['src/lib/components/ui']
 	}
 );

@@ -32,7 +32,7 @@ npm run lint
 All kind of contribution is highly welcomed.
 
 You can contribute to source code by checking [open issues](https://github.com/dezh-tech/mongostr/issues?q=is%3Aissue%20state%3Aopen%20). Please make sure you comment on that specific issue and inform everyone that you are working on it.
-You can [open an issue](https://github.com/dezh-tech/mongostr/issues/new?template=Blank+issue) to report a bug or suggest a feature. 
+You can [open an issue](https://github.com/dezh-tech/mongostr/issues/new?template=Blank+issue) to report a bug or suggest a feature.
 
 Also, donations and financial support for the development process are possible using Bitcoin and Lightning:
 
@@ -42,7 +42,7 @@ Also, donations and financial support for the development process are possible u
 bc1qa0z44j7m0v0rx85q0cag5juhxdshnmnrxnlr32
 ```
 
-**lightning**: 
+**lightning**:
 
 ```
 dezh@coinos.io
