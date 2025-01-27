@@ -20,11 +20,18 @@
 	import LightSwitch from '$lib/components/ui/light-switch/light-switch.svelte';
 
 	import { getCurrentUser, setCurrentUser } from '$lib/stores/currentUser.svelte';
+	import { fetchUserProfile, getUserProfile } from '$lib/stores/userProfile.svelte';
 	import { onMount } from 'svelte';
 	import ndk from '$lib/stores/ndk.svelte';
 	import { NDKNip07Signer } from '@nostr-dev-kit/ndk';
+	import { shortenString } from '$lib/utils/utils';
 
 	const currentUser = $derived(getCurrentUser());
+
+	const currentUserProfile = $derived(getUserProfile());
+	const userNpub = $derived.by(() => {
+		return shortenString(currentUser?.user?.npub);
+	});
 
 	function login() {
 		if (window.nostr) {
@@ -32,6 +39,7 @@
 			ndk.signer.user().then((user) => {
 				console.log('user', user);
 				setCurrentUser(user);
+				fetchUserProfile(user);
 			});
 		}
 	}
@@ -39,10 +47,6 @@
 	onMount(() => {
 		if (window.nostr) login();
 	});
-
-	const currentUserProfile = $derived.by(() =>
-		currentUser?.user ? ndk.cacheAdapter?.fetchProfileSync(currentUser?.user?.pubkey) : null
-	);
 </script>
 
 <div class="flex min-h-screen w-full flex-col">
@@ -97,9 +101,9 @@
 					<Button builders={[builder]} variant="secondary" size="icon" class="rounded-full">
 						{#if currentUserProfile}
 							<img
-								src={currentUserProfile.image}
+								src={currentUserProfile?.image}
 								alt="user profile"
-								class="mr-4 h-32 w-32 rounded-full"
+								class="h-10 w-10 rounded-full"
 							/>
 						{:else}
 							<CircleUser class="h-5 w-5" />
@@ -108,8 +112,11 @@
 					</Button>
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content align="end">
+					{#if currentUserProfile}
+						<DropdownMenu.Label>{currentUserProfile.displayName}</DropdownMenu.Label>
+					{/if}
 					{#if currentUser}
-						<DropdownMenu.Label>{currentUser.user?.npub}</DropdownMenu.Label>
+						<DropdownMenu.Label>{userNpub}</DropdownMenu.Label>
 					{:else}
 						<DropdownMenu.Label>My Account</DropdownMenu.Label>
 					{/if}

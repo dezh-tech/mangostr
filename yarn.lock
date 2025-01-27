@@ -400,6 +400,16 @@
     nostr-tools "^2.4.0"
     typescript-lru-cache "^2.0.0"
 
+"@nostr-dev-kit/ndk-cache-nostr@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@nostr-dev-kit/ndk-cache-nostr/-/ndk-cache-nostr-0.1.8.tgz#0cc9c02a98386b3055f21280c9c81b2d1bc24db0"
+  integrity sha512-5J6cDwtk3+cPKdBvxfF5AGPyPY7EiWHFONi1776KPc//IkOKhOfFAe+66SgpQU4xFJ0diCJ/vBCFcUtcMTSvwg==
+  dependencies:
+    "@nostr-dev-kit/ndk" "2.11.0"
+    debug "^4.3.4"
+    typescript "^5.4.4"
+    websocket-polyfill "^0.0.3"
+
 "@nostr-dev-kit/ndk-svelte@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@nostr-dev-kit/ndk-svelte/-/ndk-svelte-2.4.0.tgz#50fbe6c047617843ba6821652e25915952f4f966"
@@ -2311,7 +2321,7 @@ typescript-lru-cache@^2.0.0:
   resolved "https://registry.yarnpkg.com/typescript-lru-cache/-/typescript-lru-cache-2.0.0.tgz#d4ad0f071ab51987b088a57c3c502d7dd62dee07"
   integrity sha512-Jp57Qyy8wXeMkdNuZiglE6v2Cypg13eDA1chHwDG6kq51X7gk4K7P7HaDdzZKCxkegXkVHNcPD0n5aW6OZH3aA==
 
-typescript@^5.7.3:
+typescript@^5.4.4, typescript@^5.7.3:
   version "5.7.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.7.3.tgz"
   integrity sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==

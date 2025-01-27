@@ -1,13 +1,4 @@
-import { browser } from '$app/environment';
-import type { NDKCacheAdapter } from '@nostr-dev-kit/ndk';
 import NDK from '@nostr-dev-kit/ndk-svelte/svelte5';
-import NDKCacheAdapterDexie from '@nostr-dev-kit/ndk-cache-dexie';
-
-let cacheAdapter: NDKCacheAdapter | undefined = $state(undefined);
-
-if (browser) {
-	cacheAdapter = new NDKCacheAdapterDexie({ dbName: 'mangostr' });
-}
 
 export const ndkStore = new NDK({
 	explicitRelayUrls: [
@@ -17,7 +8,6 @@ export const ndkStore = new NDK({
 		'wss://relay.jellyfish.land'
 	],
 	autoConnectUserRelays: true,
-	cacheAdapter: cacheAdapter,
 	clientName: 'Mangostr'
 });
 
