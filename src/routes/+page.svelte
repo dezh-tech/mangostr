@@ -40,7 +40,9 @@
 		if (window.nostr) login();
 	});
 
-	const currentUserProfile = $derived.by(() => currentUser?.user ? ndk.cacheAdapter?.fetchProfileSync(currentUser?.user?.pubkey) : null);
+	const currentUserProfile = $derived.by(() =>
+		currentUser?.user ? ndk.cacheAdapter?.fetchProfileSync(currentUser?.user?.pubkey) : null
+	);
 </script>
 
 <div class="flex min-h-screen w-full flex-col">
@@ -93,15 +95,15 @@
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger asChild let:builder>
 					<Button builders={[builder]} variant="secondary" size="icon" class="rounded-full">
-						<!-- {#if currentUser}
+						{#if currentUserProfile}
 							<img
-								src={currentUser.profile?.image}
+								src={currentUserProfile.image}
 								alt="user profile"
 								class="mr-4 h-32 w-32 rounded-full"
 							/>
 						{:else}
 							<CircleUser class="h-5 w-5" />
-						{/if} -->
+						{/if}
 						<span class="sr-only">Toggle user menu</span>
 					</Button>
 				</DropdownMenu.Trigger>

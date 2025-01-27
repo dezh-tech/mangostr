@@ -1,13 +1,4 @@
-import { browser } from '$app/environment';
-import ndk from '$lib/stores/ndk.svelte';
-import {
-	type Hexpubkey,
-	type NDKEvent,
-	NDKKind,
-	NDKNip07Signer,
-	type NDKRelay,
-	type NDKUser
-} from '@nostr-dev-kit/ndk';
+import { type NDKUser } from '@nostr-dev-kit/ndk';
 
 let currentUser: CurrentUser | null = $state(null);
 

@@ -5,7 +5,9 @@ import NDKCacheAdapterDexie from '@nostr-dev-kit/ndk-cache-dexie';
 
 let cacheAdapter: NDKCacheAdapter | undefined = $state(undefined);
 
-cacheAdapter = new NDKCacheAdapterDexie({ dbName: 'mangostr' });
+if (browser) {
+	cacheAdapter = new NDKCacheAdapterDexie({ dbName: 'mangostr' });
+}
 
 export const ndkStore = new NDK({
 	explicitRelayUrls: [
