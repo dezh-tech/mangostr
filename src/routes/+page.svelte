@@ -39,6 +39,8 @@
 	onMount(() => {
 		if (window.nostr) login();
 	});
+
+	const currentUserProfile = $derived.by(() => currentUser?.user ? ndk.cacheAdapter?.fetchProfileSync(currentUser?.user?.pubkey) : null);
 </script>
 
 <div class="flex min-h-screen w-full flex-col">
