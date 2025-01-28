@@ -8,9 +8,10 @@
 
 	import { getCurrentRelay } from '$lib/stores/relay.svelte';
 	import { type Event } from 'nostr-tools';
+	import { writable, type Writable } from 'svelte/store';
 
 	const relay = $derived(getCurrentRelay());
-	let events: Event[] = [];
+	let events: Writable<Event[]> = writable([]);
 
 	// svelte-ignore state_referenced_locally
 	let sub = relay?.relay?.subscribe(
@@ -21,8 +22,12 @@
 		],
 		{
 			onevent(event) {
+				events.update((currentEvents) => {
+					currentEvents.push(event);
+					currentEvents.sort((a, b) => b.created_at - a.created_at);
+					return currentEvents;
+				});
 				console.log(event);
-				events.push(event);
 			},
 
 			oneose() {
@@ -30,8 +35,6 @@
 			}
 		}
 	);
-
-	console.log(events);
 </script>
 
 <Card.Root class="xl:col-span-2">
@@ -57,7 +60,7 @@
 				</Table.Row>
 			</Table.Header>
 			<Table.Body>
-				{#each events as e}
+				{#each $events as e}
 					<Table.Row>
 						<Table.Cell>
 							<div class="font-medium">{e.pubkey}</div>
