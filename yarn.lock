@@ -389,17 +389,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@nostr-dev-kit/ndk-cache-dexie@^2.5.9":
-  version "2.5.9"
-  resolved "https://registry.yarnpkg.com/@nostr-dev-kit/ndk-cache-dexie/-/ndk-cache-dexie-2.5.9.tgz#a7e2fb27f4ee2a2c9a4167c0750ff6afc567c9bb"
-  integrity sha512-SZ5FjON0QPekiC7oW9Hy3JQxG0Oxxtud9LBa1q/A49JV/Qppv1x37nFHxi0XLxEbDgFTNYbaN27Zjfp2NPem2g==
-  dependencies:
-    "@nostr-dev-kit/ndk" "2.11.0"
-    debug "^4.3.7"
-    dexie "^4.0.8"
-    nostr-tools "^2.4.0"
-    typescript-lru-cache "^2.0.0"
-
 "@nostr-dev-kit/ndk-cache-nostr@^0.1.8":
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/@nostr-dev-kit/ndk-cache-nostr/-/ndk-cache-nostr-0.1.8.tgz#0cc9c02a98386b3055f21280c9c81b2d1bc24db0"
@@ -1016,11 +1005,6 @@ devalue@^5.1.0:
   version "5.1.1"
   resolved "https://registry.npmjs.org/devalue/-/devalue-5.1.1.tgz"
   integrity sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==
-
-dexie@^4.0.8:
-  version "4.0.11"
-  resolved "https://registry.yarnpkg.com/dexie/-/dexie-4.0.11.tgz#010a2c82dd35d40aa9a81c8d21951bfeb487b7d6"
-  integrity sha512-SOKO002EqlvBYYKQSew3iymBoN2EQ4BDw/3yprjh7kAfFzjBYkaMNa/pZvcA7HSWlcKSQb9XhPe3wKyQ0x4A8A==
 
 didyoumean@^1.2.2:
   version "1.2.2"
@@ -1749,7 +1733,7 @@ normalize-range@^0.1.2:
   resolved "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
-nostr-tools@^2.4.0, nostr-tools@^2.7.1:
+nostr-tools@^2.10.4, nostr-tools@^2.7.1:
   version "2.10.4"
   resolved "https://registry.yarnpkg.com/nostr-tools/-/nostr-tools-2.10.4.tgz#2ba0a36d1f2e1b3d77c724ca8fad880c8de6844d"
   integrity sha512-biU7sk+jxHgVASfobg2T5ttxOGGSt69wEVBC51sHHOEaKAAdzHBLV/I2l9Rf61UzClhliZwNouYhqIso4a3HYg==

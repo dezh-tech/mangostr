@@ -1,12 +1,7 @@
 import NDK from '@nostr-dev-kit/ndk-svelte/svelte5';
 
 export const ndkStore = new NDK({
-	explicitRelayUrls: [
-		'wss://f7z.io',
-		'wss://relay.damus.io',
-		'wss://relay.primal.net',
-		'wss://relay.jellyfish.land'
-	],
+	explicitRelayUrls: ['wss://f7z.io', 'wss://relay.primal.net', 'wss://relay.jellyfish.land'],
 	autoConnectUserRelays: true,
 	clientName: 'Mangostr'
 });
