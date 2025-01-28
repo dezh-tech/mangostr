@@ -24,6 +24,7 @@
 			onevent(event) {
 				events.update((currentEvents) => {
 					currentEvents.push(event);
+					currentEvents.sort((a, b) => b.created_at - a.created_at);
 					return currentEvents;
 				});
 				console.log(event);
