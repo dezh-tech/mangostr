@@ -8,6 +8,7 @@
 
 	import { getCurrentRelay } from '$lib/stores/relay.svelte';
 	import { shortenString } from '$lib/utils/utils';
+	import { nip19 } from 'nostr-tools';
 
 	const relay = $derived(getCurrentRelay());
 
@@ -51,9 +52,12 @@
 					<Table.Cell class="text-right">{relay?.information?.contact}</Table.Cell>
 				</Table.Row>
 				<Table.Row>
-					<!-- todo:: turn hex to bech32 -->
 					<Table.Cell class="font-medium">Pubkey</Table.Cell>
-					<Table.Cell class="text-right">{shortenString(relay?.information?.pubkey)}</Table.Cell>
+					<Table.Cell class="text-right"
+						>{shortenString(
+							nip19.npubEncode(relay?.information?.pubkey ? relay?.information?.pubkey : '0000000000000000000000000000000000000000000000000000000000000000')
+						)}</Table.Cell
+					>
 				</Table.Row>
 				<Table.Row>
 					<Table.Cell class="font-medium">Supported NIPs</Table.Cell>
