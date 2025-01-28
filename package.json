@@ -45,6 +45,7 @@
 		"@nostr-dev-kit/ndk-svelte": "^2.4.0",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"all": "^0.0.0",
-		"mode-watcher": "^0.5.1"
+		"mode-watcher": "^0.5.1",
+		"nostr-tools": "^2.10.4"
 	}
 }

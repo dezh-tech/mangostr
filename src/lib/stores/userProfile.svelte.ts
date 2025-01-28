@@ -13,3 +13,7 @@ export async function fetchUserProfile(user: NDKUser) {
 export function getUserProfile() {
 	return userProfile;
 }
+
+export function unSetUserProfile() {
+	userProfile = null;
+}
