@@ -25,11 +25,10 @@
 				<p class="text-sm font-light">{relay?.information?.description}</p>
 			</div>
 			<div class="flex space-x-2">
-				<!-- todo: fix light mode issue. -->
-				<Button class="flex h-10 w-10 items-center justify-center p-0 text-black">
+				<Button class="h-7 w-7 items-center justify-center p-0">
 					<Pencil />
 				</Button>
-				<Button class="flex h-10 w-10 items-center justify-center p-0 text-black">
+				<Button class="h-7 w-7 items-center justify-center p-0">
 					<Eye onclick={openRelayPage} />
 				</Button>
 			</div>
