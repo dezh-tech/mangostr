@@ -17,7 +17,7 @@
 		loading = true;
 		const relay = new Relay(url);
 		await relay.connect();
-		setCurrentRelay(relay)!.revolveNIP11();
+		setCurrentRelay(relay)?.revolveNIP11();
 		dispatch('close');
 		loading = false;
 	}
