@@ -30,7 +30,7 @@
 					<Pencil />
 				</Button>
 				<Button class="h-7 w-7 items-center justify-center p-0">
-					<Eye onclick={openRelayPage} />
+					<Eye on:click={openRelayPage} />
 				</Button>
 			</div>
 		</div>
@@ -55,7 +55,11 @@
 					<Table.Cell class="font-medium">Pubkey</Table.Cell>
 					<Table.Cell class="text-right"
 						>{shortenString(
-							nip19.npubEncode(relay?.information?.pubkey ? relay?.information?.pubkey : '0000000000000000000000000000000000000000000000000000000000000000')
+							nip19.npubEncode(
+								relay?.information?.pubkey
+									? relay?.information?.pubkey
+									: '0000000000000000000000000000000000000000000000000000000000000000'
+							)
 						)}</Table.Cell
 					>
 				</Table.Row>
