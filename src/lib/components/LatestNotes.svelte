@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Refresh from 'lucide-svelte/icons/refresh-ccw';
 	import ArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
@@ -7,34 +8,37 @@
 	import * as Table from '$lib/components/ui/table/index.js';
 
 	import { getCurrentRelay } from '$lib/stores/relay.svelte';
-	import { type Event } from 'nostr-tools';
+	import { nip19, type Event } from 'nostr-tools';
 	import { writable, type Writable } from 'svelte/store';
+	import { formatDate, shortenString } from '$lib/utils/utils';
 
 	const relay = $derived(getCurrentRelay());
 	let events: Writable<Event[]> = writable([]);
 
-	// svelte-ignore state_referenced_locally
-	let sub = relay?.relay?.subscribe(
-		[
+	function update() {
+		let sub = relay?.relay?.subscribe(
+			[
+				{
+					limit: 7
+				}
+			],
 			{
-				limit: 10
-			}
-		],
-		{
-			onevent(event) {
-				events.update((currentEvents) => {
-					currentEvents.push(event);
-					currentEvents.sort((a, b) => b.created_at - a.created_at);
-					return currentEvents;
-				});
-				console.log(event);
-			},
+				onevent(event) {
+					events.update((currentEvents) => {
+						if (currentEvents.length < 7) {
+							currentEvents.push(event);
+							currentEvents.sort((a, b) => b.created_at - a.created_at);
+						}
+						return currentEvents;
+					});
+				},
 
-			oneose() {
-				sub?.close();
+				oneose() {
+					sub?.close();
+				}
 			}
-		}
-	);
+		);
+	}
 </script>
 
 <Card.Root class="xl:col-span-2">
@@ -43,9 +47,9 @@
 			<Card.Title>Last Events</Card.Title>
 			<Card.Description>Recent events received on this relay.</Card.Description>
 		</div>
-		<Button href="##" size="sm" class="ml-auto gap-1">
-			View All
-			<ArrowUpRight class="h-4 w-4" />
+		<Button on:click={update} size="sm" class="ml-auto gap-1">
+			Update
+			<Refresh class="h-4 w-4" />
 		</Button>
 	</Card.Header>
 	<Card.Content>
@@ -63,17 +67,22 @@
 				{#each $events as e}
 					<Table.Row>
 						<Table.Cell>
-							<div class="font-medium">{e.pubkey}</div>
+							<div class="font-medium">{shortenString(nip19.npubEncode(e.pubkey))}</div>
 						</Table.Cell>
-						<Table.Cell class="xl:table.-column">{e.content}</Table.Cell>
+						<Table.Cell class="xl:table.-column">{shortenString(e.content)}</Table.Cell>
 						<Table.Cell class="xl:table.-column">
 							<Badge class="text-xs" variant="outline">{e.kind}</Badge>
 						</Table.Cell>
 						<Table.Cell class="md:table.-cell xl:table.-column"
-							>{new Date(e.created_at).toString()}</Table.Cell
+							>{formatDate(e.created_at)}</Table.Cell
 						>
 						<Table.Cell class="text-right">
-							<Button href="##" size="sm" class="ml-auto gap-1">
+							<Button
+								href={`https://njump.me/${e.id}`}
+								target="_blank"
+								size="sm"
+								class="ml-auto gap-1"
+							>
 								Open
 								<ArrowUpRight class="h-4 w-4" />
 							</Button>
