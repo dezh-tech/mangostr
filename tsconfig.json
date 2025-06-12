@@ -1,16 +1,19 @@
 {
-	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext", // or "es2015"
-		"moduleResolution": "bundler",
-		"strict": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
-		"paths": {
-			"$lib/*": ["src/lib/*"]
-		}
-	},
-	"include": ["src/**/*", ".svelte-kit/**/*"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": true
+  }
 }

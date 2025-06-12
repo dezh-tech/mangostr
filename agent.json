@@ -1,0 +1,15 @@
+{
+  "model": "claude-sonnet-4",
+  "mcpServers": {
+    "js-dev": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "deno", "run", "-A", "jsr:@soapbox/js-dev-mcp"]
+    },
+    "nostr": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@nostrbook/mcp@latest"]
+    }
+  }
+}
