@@ -1,21 +1,26 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSeoMeta } from '@unhead/react';
 
-// FIXME: Update this page (the content is just a fallback if you fail to update the page)
-
 const Index = () => {
+  const navigate = useNavigate();
+
   useSeoMeta({
-    title: 'Welcome to Your Blank App',
-    description: 'A modern Nostr client application built with React, TailwindCSS, and Nostrify.',
+    title: 'Nostr Relay Manager',
+    description: 'Manage your Nostr relays with NIP-86 protocol and view relay information via NIP-11.',
   });
 
+  useEffect(() => {
+    // Redirect to relay manager
+    navigate('/relay-manager', { replace: true });
+  }, [navigate]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          Welcome to Your Blank App
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400">
-          Start building your amazing project here!
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto"></div>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Loading Relay Manager...
         </p>
       </div>
     </div>
